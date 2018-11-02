@@ -8,7 +8,9 @@
     "xcaffolder": "./index.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "preversion": "yarn test",
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "dependencies": {
     "chalk": "^2.4.1",

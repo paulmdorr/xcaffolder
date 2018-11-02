@@ -36,9 +36,9 @@ A more complex example, with a base dir, which name is set through params:
 
 ```javascript
 module.exports = {
-  generateTemplate: (params) => {
+  generateTemplate: ([ baseDir ]) => {
     return {
-      [params[0]]: [
+      [baseDir]: [
         'schema.gql',
         'resolver.js'
       ]
@@ -52,12 +52,36 @@ As you would expect, you may process the generator params any way you need, sinc
 
 ## The arguments
 
-For the time being, the only way of sending arguments to the template generator is from the command line, as a comma-separated list, so you can basically can just send strings and numbers. I made it like this because the idea is to send just a few arguments, like the base dir or maybe a couple filenames. If in future versions I see the need to send more arguments, I will have to rethink this.
+For the time being, the only way of sending arguments to the template generator is from the command line, as a comma-separated list, so basically you can just send strings and numbers. I made it like this because the idea is to send just a few arguments, like the base dir or maybe a couple filenames. If in future versions I see the need to send more arguments, I will have to rethink this.
 
 You can send arguments like this:
 
 ```bash
-xcaffolder baseDir,anotherDir,aFilename
+xcaffolder baseDir,aFilename,anotherFilename
+```
+
+And you will receive them like this:
+
+```javascript
+module.exports = {
+  generateTemplate: ([ baseDir, file1, file2 ]) => {
+    return {
+      [baseDir]: [ // 'baseDir'
+        file1,     // 'aFilename'
+        file2      // 'anotherFilename'
+      ]
+    }
+  },
+  path: 'example/path/',
+}
+```
+
+Which will create the following structure:
+
+```
+example/path/baseDir
+example/path/baseDir/aFilename
+example/path/baseDir/anotherFilename
 ```
 
 ## Running xcaffolder
@@ -66,9 +90,9 @@ Running xcaffolder is quite straightforward. All you need is the `.xcaffoldrc` c
 
 You should run it from the folder containing the config file, otherwise **_xcaffolder_** wouldn't be able to find the templates generators folder.
 
-Besides the arguments list that is passed to the generator, you may also add the "-d" option, which will make **_xcaffolder_** run in "dry mode", printing the structure that will be generated without actually creating it.
+Besides the arguments list that is passed to the generator, you may also add the "-d" option, which will make **_xcaffolder_** run in "dry mode". This option will output a preview of the structure that will be generated, without actually creating it.
 
 ## Collaborating
 ------
 
-Don't hesitate to contact me at [paulmdorr.me/contact](http://paulmdorr.me/contact) if you have suggestions or questions. Also, feel free to create a _new issue_ or make a _pull request_!
+Don't hesitate to contact me at [paulmdorr.me/contact](http://paulmdorr.me/contact) if you have suggestions or questions. Also, feel free to create a _new issue_ or make a _pull request_ on the [github repo](https://github.com/paulmdorr/xcaffolder)!

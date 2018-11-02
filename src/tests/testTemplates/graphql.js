@@ -1,7 +1,7 @@
 module.exports = {
-  generateTemplate: (params) => {
+  generateTemplate: ([ baseDir ]) => {
     return {
-      [params[0]]: [
+      [baseDir]: [
         'schema.gql',
         'resolver.js'
       ]
