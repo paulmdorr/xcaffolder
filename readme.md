@@ -92,6 +92,11 @@ You should run it from the folder containing the config file, otherwise **_xcaff
 
 Besides the arguments list that is passed to the generator, you may also add the "-d" option, which will make **_xcaffolder_** run in "dry mode". This option will output a preview of the structure that will be generated, without actually creating it.
 
+## Features future me may implement
+
+- Files content templates
+- Better way of sending cli arguments
+
 ## Collaborating
 
 Don't hesitate to contact me at [paulmdorr.me/contact](http://paulmdorr.me/contact) if you have suggestions or questions. Also, feel free to create a _new issue_ or make a _pull request_ on the [github repo](https://github.com/paulmdorr/xcaffolder)!
