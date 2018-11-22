@@ -10,13 +10,13 @@ npm i -g xcaffolder
 
 ## The config file
 
-In order to work properly, **_xcaffolder_** needs a really simple JSON config file called `.xcaffoldrc`. For now, it consists of just one key, pointing to the dir where the user stores the template generators.
+In order to work properly, **_xcaffolder_** needs a really simple JSON config file called `.xcaffoldrc`. For the time being, it consists of just one key, pointing to the dir where the user stores the template generators.
 
 ## The template generator
 
 This is just a JS module that exports two things:
-  1) A function called generateTemplate, which receives params (sent by xcaffolder) and returns an object or an array containing the folder structure or files list, respectively.
-  2) A const indicating the path in which these files and folders should be created.
+  1) A `function` called generateTemplate, which receives params (sent by xcaffolder) and returns an `object` or an `array` containing the folder structure or files list, respectively.
+  2) A `string` indicating the path in which these files and folders should be created.
 
 A basic example, without any params:
 
@@ -92,7 +92,11 @@ You should run it from the folder containing the config file, otherwise **_xcaff
 
 Besides the arguments list that is passed to the generator, you may also add the "-d" option, which will make **_xcaffolder_** run in "dry mode". This option will output a preview of the structure that will be generated, without actually creating it.
 
+## Features future me may implement
+
+- Files content templates
+- Better way of sending cli arguments
+
 ## Collaborating
-------
 
 Don't hesitate to contact me at [paulmdorr.me/contact](http://paulmdorr.me/contact) if you have suggestions or questions. Also, feel free to create a _new issue_ or make a _pull request_ on the [github repo](https://github.com/paulmdorr/xcaffolder)!
